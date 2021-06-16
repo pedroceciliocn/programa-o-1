@@ -1,3 +1,9 @@
+"""
+Calcular o valor de S com N termos, onde N é
+informado pelo usuário e S é:
+    S = 2/500 - 5/490 + 2/480 - 5/470 + ...
+"""
+
 N = int(input("Digite o N (numero de termos): "))
 
 d = 500
@@ -12,4 +18,3 @@ for i in range(1, N+1):
     d -= 10    
 print("____________")
 print(f"S = {s:.4f}")
-        

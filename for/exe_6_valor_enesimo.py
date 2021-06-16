@@ -1,3 +1,8 @@
+"""
+Ler um número inteiro N e imprimir o valor do
+n-ésimo termo da sequência
+    [-1, 0, 5, 6, 11, 12, 17, 18, ...]
+"""
 N = int(input("De o n e veremos o enésimo termo da sequência [-1, 0, 5, 6, 11, 12, 17, 18, ...]: "))
 
 if N <= 0:

@@ -1,3 +1,7 @@
+"""
+Somar os inteiros ímpares entre dois valores
+inteiros informados pelo usuário.
+"""
 n_1 = int(input("De o primeiro valor do intervalo: "))
 n_2 = int(input("De o segundo valor do intervalo: "))
 s = 0

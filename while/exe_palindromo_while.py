@@ -1,3 +1,4 @@
+# Questão que verifica se uma string S é um palíndromo
 s = input("Digite o número a verificar, sem espaços:")
 i = 0
 fim = len(s)-1  # posição do último caracter da string
