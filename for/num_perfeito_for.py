@@ -9,10 +9,9 @@ t = TicToc()
 x = 1
 soma = 0
 t.tic()
-while x < numero:
+for x in range(1, numero):
     if numero % x == 0:
         soma += x
-    x += 1
 if numero == soma:
     print(f"{numero} é perfeito.")
 else:

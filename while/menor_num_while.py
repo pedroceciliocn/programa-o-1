@@ -4,7 +4,8 @@ lidos. A leitura dos números deve parar quando o
 número zero for lido.
 """
 sair = False
-menor = 0
+n = int(input("Dê o inteiro: "))
+menor = n
 while not sair:
     n = int(input("Dê o inteiro:"))
     if n == 0:

@@ -16,4 +16,4 @@ else:
         numerador -= 1
         denominador += 1
     print("-------------")
-    print(f"S = {s:_^10.2f}")
+    print(f"S =  {s:8.2f}")
