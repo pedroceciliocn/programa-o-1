@@ -5,7 +5,6 @@ para quando um número negativo for lido.
 """
 sair = False
 soma = 0
-media= 0
 i = 0
 while not sair:
     n = float(input("Dê o número: "))
