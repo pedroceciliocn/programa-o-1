@@ -1,5 +1,4 @@
-
-n = int(input("De o numero de linhas com #: "))
+n = int(input("De o número de linhas com #: "))
 
 
 for i in range(1, n + 1):
@@ -9,3 +8,8 @@ for i in range(1, n + 1):
     print()
 
 
+# n = int(input("Dê o número de linhas com #: "))
+# hashtag = ""
+# for i in range(1, n + 1):
+#     hashtag += "#"
+#     print(hashtag)
