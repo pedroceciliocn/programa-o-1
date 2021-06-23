@@ -18,7 +18,7 @@ s.find("e", 20, -5)
 26
 """
 
-nome = input("Dê seu nome completo: ")
+nome = input("Dê seu nome completo: ").strip()
 
 i_fim_primeiro = nome.find(" ") #indice do primeiro espaço
 i_inicio_ultimo = nome.rfind(" ") #indice do primeiro espaço comecando da direita
