@@ -7,8 +7,8 @@ while N <= 0:
     N = int(input("Dê o N (maior que 0): "))
 
 lista = []
-for x in range(N):
-    numero = int(input(f"Dê o elemento {x} para a lista: "))
+for elemento in range(N):
+    numero = int(input(f"Dê o elemento {elemento} para a lista: "))
     lista.append(numero)
 
 pares = []

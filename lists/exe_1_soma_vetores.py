@@ -8,7 +8,7 @@ while N <= 0:
     N = int(input("Dê o N (maior que 0): "))
 v_1 = []
 v_2 = []
-x = 0
+
 for x in range(N):
     n = int(input(f"Dê o elemento {x} para o vetor 1: "))
     v_1.append(n)
