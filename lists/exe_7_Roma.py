@@ -11,17 +11,18 @@ usando um String.
 são: I=1, V=5, X=10, L=50, C=100, D=500, e M=1000,
 e que IV=4, IX=9, XL=40, XC=90, CD=400 e CM=900.
 """
-N = int(input("Dê um inteiro N: "))
-while N <= 0:
-    print("Número inválido.")
-    N = int(input("Dê um inteiro positivo N: "))
-
 valor = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
 simbolo = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
 numero_romano = ""
-i = 0
-for x in range(N):
-    n = int(input("Dê um numero: "))
+
+N = int(input("Dê um inteiro N: "))
+while N <= 0 and N >= 4000:
+    print("Número inválido.")
+    N = int(input("Dê um inteiro positivo N menor que 4000: "))
+    
+for num in range(N):
+    n = int(input("Dê um número N inteiro positivo menor que 4000: "))
+    i = 0
     num = n
     while num > 0:
         div = num//valor[i]
@@ -30,11 +31,7 @@ for x in range(N):
             numero_romano += simbolo[i]
             div -= 1
         i += 1
-    print(numero_romano)
-
-
-
-
-
+    print(f"{n} -> {numero_romano}")
+    numero_romano = ""
 
 

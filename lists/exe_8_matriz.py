@@ -22,7 +22,7 @@ for i in range(M):
 v = []
 for i in range(M):
     for j in range(N):
-        m[i][j] = int(input(f"Dê o elemento i = {i+1} j = {j+1} da matriz: "))
+        m[i][j] = int(input(f"Dê o elemento {i+1} {j+1} da matriz: "))
         if m[i][j] % 6 == 0:
             v.append(m[i][j])
 
