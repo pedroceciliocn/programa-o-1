@@ -1,0 +1,68 @@
+"""
+Questão 3 – Faça um programa Python para ler uma tabela de alunos onde:
+    • Cada aluno tem uma matrícula (int), um nome (string) e uma idade (int).
+    • A leitura da tabela pára com uma matrícula que não seja positiva.
+    • O usuário só pode digitar no máximo 200 alunos.
+Depois o usuário informará um inteiro positivo N, seguido por uma série de N intervalos
+de idades (idades mínima e máxima), e o programa deve imprimir, para cada intervalo
+digitado pelo usuário, os dados dos alunos que se enquadram no intervalo, seguidos pelo
+número de alunos do intervalo. Caso a idade mínima de algum intervalo seja maior do
+que a idade máxima, o programa deve simplesmente imprimir uma mensagem de erro e
+continuar
+"""
+# leitura
+tab = {}
+n = 0
+
+matricula = int(input("Matrícula (negativo para parar): "))
+while matricula < 0:
+    matricula = int(input("Inválido. Digite novamente a matrícula (negativo para parar): "))
+
+while matricula != 0: #incossistencia
+    nome = input("Nome do aluno: ")
+    idade = int(input("Idade do aluno: "))
+    while idade < 1:
+        idade = int(input("Inválido. Digite novamente a idade do aluno: "))
+    tab[matricula] = (nome, idade)
+    n += 1
+
+    matricula = int(input("Matrícula (0 ou negativo para parar): "))
+    while matricula < 1 or matricula in tab:
+        matricula = int(input("Inválido ou repetido. Digite novamente a matrícula do aluno (0 ou negativo para parar): "))
+
+print(f"Tabela com {n} alunos lida corretamente.\n {tab}")
+
+#consulta
+N = int(input("Dê o N de intervalos a pesquisar: "))
+while N < 1:
+    N = int(input("Inválido. Dê o N de intervalos a pesquisar: "))
+
+minimos = []
+maximos = []
+for i in range(N):
+    min = int(input("Dê o intervalo mínimo {i} de idade: "))
+    max = int(input("Dê o intervalo máximo {i} de idade: "))
+    if max < min:
+        max = int(input("Errado! Dê o intervalo máximo {i} de idade: "))
+    # minimos.append(min)
+    # maximos.append(max)
+    # else:
+
+
+
+
+codigo_centro = int(input("Código do centro para pesquisar: "))
+while codigo_centro < 1:
+    codigo_centro = int(input("Inválido. Digite novamente o código do centro a ser pesquisado: "))
+
+while codigo_centro > 0:
+    qtd = 0
+    print(f"Cursos do centro {codigo_centro}: ")
+    for chave in tab:
+        if codigo_centro == tab[chave][1]:
+            qtd += 1
+            print(f"   {chave}: {tab[chave][0]}")
+    if qtd == 0:
+        print(f"Nenhum curso encontrado no centro {codigo_centro}")        
+    codigo_centro = int(input("Código do centro para pesquisar: "))
+print("Fim do programa.")
