@@ -16,14 +16,16 @@ simbolo = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"
 numero_romano = ""
 
 N = int(input("Dê um inteiro N: "))
-while N <= 0 and N >= 4000:
+while N <= 0:
     print("Número inválido.")
-    N = int(input("Dê um inteiro positivo N menor que 4000: "))
+    N = int(input("Dê um inteiro positivo N: "))
     
 for num in range(N):
-    n = int(input("Dê um número N inteiro positivo menor que 4000: "))
+    x = int(input("Dê um número x inteiro positivo menor que 4000: "))
+    while x < 1 or x > 3999:
+        x = int(input("Dê um número x inteiro positivo menor que 4000: "))
     i = 0
-    num = n
+    num = x
     while num > 0:
         div = num//valor[i]
         num = num % valor[i]
@@ -31,7 +33,7 @@ for num in range(N):
             numero_romano += simbolo[i]
             div -= 1
         i += 1
-    print(f"{n} -> {numero_romano}")
+    print(f"{x} -> {numero_romano}")
     numero_romano = ""
 
 

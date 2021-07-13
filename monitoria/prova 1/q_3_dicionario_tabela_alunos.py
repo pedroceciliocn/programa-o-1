@@ -27,8 +27,10 @@ while matricula != 0: #incossistencia
     n += 1
 
     matricula = int(input("Matrícula (0 ou negativo para parar): "))
-    while matricula < 1 or matricula in tab:
-        matricula = int(input("Inválido ou repetido. Digite novamente a matrícula do aluno (0 ou negativo para parar): "))
+    while matricula in tab or matricula < 1:
+        print("fim")
+        break
+        # matricula = int(input("Repetido. Digite novamente a matrícula do aluno (0 ou negativo para parar): "))
 
 print(f"Tabela com {n} alunos lida corretamente.\n {tab}")
 
@@ -37,32 +39,39 @@ N = int(input("Dê o N de intervalos a pesquisar: "))
 while N < 1:
     N = int(input("Inválido. Dê o N de intervalos a pesquisar: "))
 
-minimos = []
-maximos = []
 for i in range(N):
-    min = int(input("Dê o intervalo mínimo {i} de idade: "))
-    max = int(input("Dê o intervalo máximo {i} de idade: "))
+    min = int(input(f"Dê o {i+1}º intervalo mínimo de idade: "))
+    max = int(input(f"Dê o {i+1}º intervalo máximo de idade: "))
     if max < min:
-        max = int(input("Errado! Dê o intervalo máximo {i} de idade: "))
-    # minimos.append(min)
-    # maximos.append(max)
-    # else:
+        max = int(input(f"Errado! Dê o {i+1}º intervalo máximo de idade: "))
+    else:
+        qtd = 0
+        print(f"Alunos na faixa {min}~{max} anos de idade: ")
+        for matricula in tab:
+            if min <= tab[matricula][1] and max >= tab[matricula][1]:
+                qtd += 1
+                print(f"Matrícula {matricula}: {tab[matricula][0].title()}, {tab[matricula][1]} anos")
+        print(f"Total de alunos: {qtd}")
+        if qtd == 0:
+            print(f"Nenhum aluno encontrado na faixa {min}~{max} de idade")
+            
+            
 
 
 
 
-codigo_centro = int(input("Código do centro para pesquisar: "))
-while codigo_centro < 1:
-    codigo_centro = int(input("Inválido. Digite novamente o código do centro a ser pesquisado: "))
+# codigo_centro = int(input("Código do centro para pesquisar: "))
+# while codigo_centro < 1:
+#     codigo_centro = int(input("Inválido. Digite novamente o código do centro a ser pesquisado: "))
 
-while codigo_centro > 0:
-    qtd = 0
-    print(f"Cursos do centro {codigo_centro}: ")
-    for chave in tab:
-        if codigo_centro == tab[chave][1]:
-            qtd += 1
-            print(f"   {chave}: {tab[chave][0]}")
-    if qtd == 0:
-        print(f"Nenhum curso encontrado no centro {codigo_centro}")        
-    codigo_centro = int(input("Código do centro para pesquisar: "))
-print("Fim do programa.")
+# while codigo_centro > 0:
+#     qtd = 0
+#     print(f"Cursos do centro {codigo_centro}: ")
+#     for chave in tab:
+#         if codigo_centro == tab[chave][1]:
+#             qtd += 1
+#             print(f"   {chave}: {tab[chave][0]}")
+#     if qtd == 0:
+#         print(f"Nenhum curso encontrado no centro {codigo_centro}")        
+#     codigo_centro = int(input("Código do centro para pesquisar: "))
+# print("Fim do programa.")

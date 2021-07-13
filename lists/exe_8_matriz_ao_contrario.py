@@ -18,24 +18,16 @@ while N > 8 or N < 1:
 matriz = []
 for i in range(M):
     matriz.append([0]*N)
-    for j in range(N):
-        matriz[i][j] = int(input(f"Dê o elemento {i+1} {j+1} da matriz: "))
-
 
 vetor = []
-for j in range(N):
-    for i in range(M):
-            if matriz[i][j] % 6 == 0:
-                vetor.append(matriz[i][j])
+for i in range(M): #essa parte ta correta
+    for j in range(N):
+        matriz[i][j] = int(input(f"Dê o elemento {i+1} {j+1} da matriz: "))
+        if matriz[i][j] % 6 == 0: #essa parte ta errada, pq deveria começar pela coluna
+            vetor.append(matriz[i][j])
 
 for i in range(M):
     print(matriz[i])
-
-# imprimindo elemento por elemento
-for i in range(M):
-    for j in range(N):
-        print(f"{matriz[i][j]:>5}", end = '') # pulando e alinhando 
-    print()
 
 if len(vetor) == 0:
     print("Não há múltiplos de 6 na matriz")
