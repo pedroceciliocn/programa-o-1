@@ -19,7 +19,7 @@ soma = 0
 
 cpf = int(input("CPF: "))
 while cpf < 0:
-    cpf = int(input("Inválido. Digite novamente a CPF: "))
+    cpf = int(input("Inválido. Digite novamente o CPF: "))
 
 while cpf > 0 and n <= 300: 
     nome = input("Nome da pessoa: ")
@@ -29,24 +29,25 @@ while cpf > 0 and n <= 300:
     tab[cpf] = (nome, salario)
     n += 1
 
-    cpf = int(input("CPF (negativo para parar): "))
-    while cpf in tab or cpf < 0:
-        cpf = int(input("CPF (negativo para parar): "))
+    cpf = int(input("CPF (negativo para parar): ")) #incosistencia
+    while cpf in tab:
+        cpf = int(input("CPF repetido! Digite novamente o CPF (negativo para parar): ")) #incosistencia
 
-print(f"Tabela com {n} pessoas lida corretamente.\n {tab}")
+print(f"Tabela com {n} pessoas lida corretamente.\n {tab}") # dicionario de tuplas
 
 #consulta
-N = int(input("Dê o N de intervalos a pesquisar: "))
-while N < 1:
-    N = int(input("Inválido. Dê o N de intervalos a pesquisar: "))
+# N = int(input("Dê o N de intervalos a pesquisar: "))
+# while N < 1:
+#     N = int(input("Inválido. Dê o N de intervalos a pesquisar: "))
 
-for i in range(N):
-    min = float(input(f"Dê o {i+1}º intervalo mínimo de salário: "))
+continuar = True
+while continuar:
+    min = float(input(f"Dê o intervalo mínimo de salário: "))
     if min < 0:
-        min = float(input(f"Salário negativo! Dê o {i+1}º intervalo mínimo de salário: "))
-    max = float(input(f"Dê o {i+1}º intervalo máximo de salário: "))
+        min = float(input(f"Salário negativo! Dê o intervalo mínimo de salário: "))
+    max = float(input(f"Dê o intervalo máximo de salário: "))
     if max < min:
-        max = int(input(f"Errado! Dê o {i+1}º intervalo máximo de salário: "))
+        max = int(input(f"Errado! Dê o intervalo máximo de salário: "))
     else:
         qtd = 0
         maior_salario = 0
@@ -57,16 +58,18 @@ for i in range(N):
                 qtd += 1
                 if tab[cpf][1] > maior_salario:
                     maior_salario = tab[cpf][1]
-                print(f"CPF {cpf}: {tab[cpf][0].title()}, R$ {tab[cpf][1]:.2f} de salário")
+                print(f"CPF {cpf}: {tab[cpf][0].title()}, R$ {tab[cpf][1]:.2f} de salário") 
                 soma += tab[cpf][1]
             if tab[cpf][1] > max:
                 qtd_maior_que_max += 1
         
         if qtd == 0:
             print(f"Nenhuma pessoa encontrada na faixa R$ {min:.2f} ~ R${max:.2f} de salário")
+            continuar = False
         else:
             print(f"Total de pessoas na faixa R$ {min:.2f} ~ R$ {max:.2f}: {qtd}")
             print(f"O maior salário da faixa R$ {min:.2f} ~ {max:.2f} é: R$ {maior_salario:.2f}")
             print(f"Média de salários na faixa R$ {min:.2f} ~ R$ {max:.2f}: R$ {soma/qtd:.2f}")
             print(f"Pessoas com salários maiores do que o máximo de R$ {max:.2f}: {qtd_maior_que_max}")
+            continuar = False
 

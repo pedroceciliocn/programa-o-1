@@ -7,7 +7,7 @@ seguintes informações como resultado (nesta ordem):
     destes números deve ser feita na ordem inversa da que foram lidos.
     • O maior número lido que seja múltiplo de 11.
 """
-lista = []
+# lista = []
 cinco = []
 onze = []
 maior = 0
@@ -15,9 +15,9 @@ contador = 0
 
 numero = int(input("Dê um número inteiro negativo: "))
 while numero >= 0:
-    numero = int(input("Não é negativo! Dê um primeiro número inteiro negativo: "))
-while numero < 0 and contador < 300:
-    lista.append(numero)
+    numero = int(input("Não é negativo! Dê pelo menos o primeiro número inteiro negativo: "))
+while numero < 0 and contador < 150:
+    # lista.append(numero)
     contador += 1
     if abs(numero) % 5 == 0: #usando modulo (valor absoluto)
         cinco.append(numero) 

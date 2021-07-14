@@ -25,6 +25,6 @@ for i in range(1, N+1):
         print(f"+ {numerador_impar}/{denominador}! ", end = "") # para fins de checagem
         numerador_impar -= 5
     denominador += 1
-    fatorial = fatorial * denominador
+    fatorial *= denominador
 
 print(f"\nResultado: S = {S:.2f}")

@@ -23,7 +23,7 @@ for i in range(N):
         codigo = int(input("Dê o código da profissão (maior que 0): "))
     nome = input("Dê o nome da profissão: ")
     area = int(input("Dê a área da profissão: "))
-    tabela[codigo] = (nome, area)
+    tabela[codigo] = (nome, area) #dicionario de tuplas
 print(f"Tabela com {N} profissões lidas corretamente.")
 print(f"Tabela->{tabela}")
 

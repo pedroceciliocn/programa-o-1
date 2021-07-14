@@ -14,11 +14,11 @@ continuar
 tab = {}
 n = 0
 
-matricula = int(input("Matrícula (negativo para parar): "))
+matricula = int(input("Matrícula: "))
 while matricula < 0:
     matricula = int(input("Inválido. Digite novamente a matrícula (negativo para parar): "))
 
-while matricula != 0: #incossistencia
+while matricula > 0 and n <= 200: #incossistencia???
     nome = input("Nome do aluno: ")
     idade = int(input("Idade do aluno: "))
     while idade < 1:
@@ -27,12 +27,10 @@ while matricula != 0: #incossistencia
     n += 1
 
     matricula = int(input("Matrícula (0 ou negativo para parar): "))
-    while matricula in tab or matricula < 1:
-        print("fim")
-        break
-        # matricula = int(input("Repetido. Digite novamente a matrícula do aluno (0 ou negativo para parar): "))
+    while matricula in tab:
+        matricula = int(input("Repetido. Digite novamente a matrícula do aluno (0 ou negativo para parar): "))
 
-print(f"Tabela com {n} alunos lida corretamente.\n {tab}")
+print(f"Tabela com {n} alunos lida corretamente.\n {tab}") #para conferir (dicionário de tuplas - podia ser de listas)
 
 #consulta
 N = int(input("Dê o N de intervalos a pesquisar: "))
@@ -41,8 +39,10 @@ while N < 1:
 
 for i in range(N):
     min = int(input(f"Dê o {i+1}º intervalo mínimo de idade: "))
+    while min < 0:
+        min = int(input(f"Mínimo negativo! Dê o {i+1}º intervalo mínimo de idade: "))
     max = int(input(f"Dê o {i+1}º intervalo máximo de idade: "))
-    if max < min:
+    while max < 0 or max < min:
         max = int(input(f"Errado! Dê o {i+1}º intervalo máximo de idade: "))
     else:
         qtd = 0
