@@ -13,19 +13,19 @@ while num >= 0:
     num = int(input("Inválido! Dê pelo menos o primeiro negativo e diferente de 0: "))
 
 dois_digitos_multi_cinco = []
-maior_nao_multi_sete = 0
+maior_nao_multi_sete = num
 continuar = True
 while continuar:
     if len(str(abs(num))) == 2 and num % 5 == 0:
         dois_digitos_multi_cinco.append(num)
-    if num % 7 != 0 and abs(num) < maior_nao_multi_sete:
+    if num % 7 != 0 and num > maior_nao_multi_sete:
         maior_nao_multi_sete = num
 
     num = int(input("Dê um número inteiro negativo (0 para): "))
     while num > 0:
         num = int(input("Número positivo! Dê um inteiro NEGATIVO! "))
     
-    if num !=0 or num <= 150:
+    if num == 0 or num <= 150:
         continuar = False
 
 dois_digitos_multi_cinco.reverse()
