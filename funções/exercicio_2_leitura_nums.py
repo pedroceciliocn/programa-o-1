@@ -37,7 +37,6 @@ def desmembrar(numero):
 
     lista.reverse()
     return lista
-
 # print(desmembrar(12345)) #teste
 
 def contador_numero(numero, algarismo):
@@ -49,7 +48,6 @@ def contador_numero(numero, algarismo):
         if i == algarismo:
             contador += 1
     return contador
-
 # print(contador_numero(99999, 9)) #teste
 
 N = int(input("Dê o número: "))

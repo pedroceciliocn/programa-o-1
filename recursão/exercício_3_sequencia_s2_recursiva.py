@@ -6,7 +6,7 @@ ser um parâmetro recebido na chamada:
 def serie_S2(n, nu_1 = 37, nu_2 = 38, de = 1.0):
     res = (nu_1) * nu_2 / de
     if n > 1:
-        return res - serie_S2(n - 1, (nu_1 - 1), nu_2 - 1, de + 1)
+        return res - serie_S2(n - 1, nu_1 - 1, nu_2 - 1, de + 1)
     return res
 
 # print(serie_S2(1))
