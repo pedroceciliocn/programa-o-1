@@ -25,7 +25,7 @@ for i in range(0, N):
         n_pos += 12
 
     else:
-        d+= 10*i
+        d += 10*i
         s += -n_neg/d
         print(f"- {n_neg}/{d} ", end = "")
         n_neg += 14

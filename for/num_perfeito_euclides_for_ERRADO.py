@@ -6,7 +6,7 @@ ehPerfeito = False
 while n <= 0:
     n = int(input("Dê um número maior que 0: "))
 else:
-    for (i, sequenciaPerfeitos): #isso é uma recursao, daria pra melhorar
+    for (i, sequenciaPerfeitos): #isso é uma recursao, daria pra melhorar e a sintaxe tá errada
         sequenciaPerfeitos = (2 ** (i -1)) * ((2 ** i) - 1)
         if sequenciaPerfeitos == n:
             ehPerfeito = True

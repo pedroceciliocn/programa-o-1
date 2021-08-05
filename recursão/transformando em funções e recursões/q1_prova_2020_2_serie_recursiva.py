@@ -55,16 +55,55 @@ S = 2 – 7 / 5 + 8 / 3 – 13 / 9 + 32 / 9 – 19 / 13 + 128 / 27 ...
 
 """S = 2 – 7 / 5 + 8 / 3 – 13 / 9 + 32 / 9 – 19 / 13 + 128 / 27 ..."""
 # com recursão
-def serie(n, pos = True, nu = 2, de = 1.0, nu_neg = -13, de_neg = 1):
-    # passa o nu e o de do proximo para o aux 
-    res = nu/de
+# def serie(n, pos = True, nu = 2, de = 1.0, nu_neg = -13, de_neg = 1):
+# def serie(n, pos = True, nu = 2, de = 1, nu_neg = 7, de_neg = 5):
+#     # passa o nu e o de do proximo para o aux 
+#     res = nu/de
+#     if n > 1:
+#         if pos == True:
+#             res -= serie(n - 1, False, nu_neg - 6, de_neg + 4, nu, de)
+#         else:
+#             res += serie(n - 1, True, nu * 4, de * 3, nu_neg, de_neg)
+#     return res
+
+# """S = 2 – 7 / 5 + 8 / 3 – 13 / 9 + 32 / 9 – 19 / 13 + 128 / 27 ..."""
+# def serie(n, nu = 2, de = 1, nu_neg = -13, de_neg = 1):
+#     # passa o nu e o de do proximo para o aux 
+#     res = nu/de
+#     if n > 1:
+#         if nu % 2 == 0:
+#             res += serie(n - 1, nu_neg + 6, de_neg + 4, nu, de)
+#         else:
+#             res += serie(n - 1, nu * 4, de * 3, nu_neg, de_neg)
+#     return res
+
+
+# N = int(input("Dê o número de termos da sequência S: "))
+# while N > 0:
+#     print(f"A soma dos {N} termos da sequência é: {serie(N):.4f}")
+#     N = int(input("Dê o número de termos da sequência S: "))
+
+"""S = 2 – 7 / 5 + 8 / 3 – 13 / 9 + 32 / 9 – 19 / 13 + 128 / 27 ..."""
+# def serie(n, pos = True, nu = 2, de = 1, nu_neg = -7, de_neg = 5):
+#     res = nu / de
+#     if n > 1:
+#         if pos == True:
+#             res =  nu/de + serie(n - 1, False, nu_neg, de_neg, nu * 4, de * 3)
+#         else:
+#             res =  nu/de + serie(n - 1, True, nu, de, nu_neg + 6, de_neg + 4)
+#     return res
+"""S = 2 – 7 / 5 + 8 / 3 – 13 / 9 + 32 / 9 – 19 / 13 + 128 / 27 ..."""
+def serie(n, nu = 2, de = 1, nu_neg = -7, de_neg = 5, pos = True):
+    if pos == True:
+        res = nu / de
+    else:
+        res = nu_neg/de_neg
     if n > 1:
         if pos == True:
-            res += serie(n - 1, False, nu_neg + 6, de_neg + 4, nu, de)
+            return res + serie(n - 1, nu * 4, de * 3, nu_neg, de_neg, False)
         else:
-            res += serie(n - 1, True, nu * 4, de * 3, nu_neg, de_neg)
+            return res + serie(n - 1, nu, de, nu_neg - 6, de_neg + 4, True)
     return res
-
 
 N = int(input("Dê o número de termos da sequência S: "))
 while N > 0:
