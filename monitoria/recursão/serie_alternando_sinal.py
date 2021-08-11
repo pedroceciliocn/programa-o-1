@@ -19,7 +19,7 @@ def serie_S3(n, nu = 150, de = 20, nu_neg = -156, de_neg = 30, pos = True):
 
 N = int(input("Dê o número de termos da sequência S1: "))
 while N > 0:
-    print(f"A soma dos {N} termos da sequência é: {serie_S1(N):.2f}")
+    print(f"A soma dos {N} termos da sequência é: {serie_S3(N):.2f}")
     N = int(input("Dê o número de termos da sequência S1: "))
 
 
