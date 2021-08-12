@@ -68,7 +68,6 @@ número de disciplinas que tiveram seus números de créditos alterados.
 #                     código = disciplina[0:5]
 #                     nome = disciplina[6:41]
 #                     créditos = disciplina[42:44]
-#                     carga = disciplina[45:47]
 #                     if código.startswith('MA'):
 #                         créditos = "5"
 #                         total_codigo_alterado += 1
@@ -92,6 +91,43 @@ número de disciplinas que tiveram seus números de créditos alterados.
 
 
 
+# fim = False
+# total_discip_velhas = 0
+# total_discip_novas = 0
+# total_codigo_alterado = 0
+
+# while not fim:
+#     try:
+#         nome_arquivo = input("Digite o nome/caminho do arquivo: ")
+#         # disciplinas = open(nome_arquivo, 'r')
+#         # discipnew = open('/home/pedro/Documentos/programação_1/arquivos e exceções/discip.new.txt', 'w')
+#         with open("discip.new.txt", "w") as discipnew:
+#             with open(nome_arquivo) as disciplinas:
+#                 for disciplina in disciplinas:
+#                     código = disciplina[0:5]
+#                     nome = disciplina[6:41]
+#                     créditos = disciplina[42:44]
+#                     if código.startswith('MA'):
+#                         créditos = "5"
+#                         total_codigo_alterado += 1
+#                     if código == "IF125" or código == "IF380":
+#                         discipnew.write('')
+#                     else:
+#                         carga = str(int(créditos) * 15)
+#                         discipnew.write(f'{código} {nome} {créditos} \t{carga}\n') # ainda pode estar errado, pois a especificação de 3 posições não foi satisfeita
+#                         total_discip_novas += 1
+
+#                     total_discip_velhas += 1
+#     except FileNotFoundError:
+#         print("Arquivo informado pelo usuário não encontrado. Digite um nome válido.")
+#     else:
+#         print(f"Número de disciplinas armazenadas no arquivo antigo: {total_discip_velhas}")
+#         print(f"Número de disciplinas armazenadas no novo arquivo: {total_discip_novas}")
+#         print(f"Número de disciplinas com créditos alterados no novo arquivo: {total_codigo_alterado}")
+#         fim = True  
+
+
+
 fim = False
 total_discip_velhas = 0
 total_discip_novas = 0
@@ -100,28 +136,25 @@ total_codigo_alterado = 0
 while not fim:
     try:
         nome_arquivo = input("Digite o nome/caminho do arquivo: ")
-        # disciplinas = open(nome_arquivo, 'r')
-        # discipnew = open('/home/pedro/Documentos/programação_1/arquivos e exceções/discip.new.txt', 'w')
-        with open("discip.new.txt", "w") as discipnew:
-            with open(nome_arquivo) as disciplinas:
-                for disciplina in disciplinas:
-                    código = disciplina[0:5]
-                    nome = disciplina[6:41]
-                    créditos = disciplina[42:44]
-                    carga = disciplina[45:47]
-                    if código.startswith('MA'):
+        disciplinas = open(nome_arquivo, 'r')
+        discipnew = open('/home/pedro/Documentos/programação_1/arquivos e exceções/discip.new.txt', 'w')
+        with disciplinas, discipnew:
+            for disciplina in disciplinas:
+                código = disciplina[0:5]
+                nome = disciplina[6:41]
+                créditos = disciplina[42:44]
+                if código != "IF125" and código != "IF380":
+                    if código[0:2] == ('MA'):
                         créditos = "5"
                         total_codigo_alterado += 1
-                    if código == "IF125" or código == "IF380":
-                        discipnew.write('')
-                    else:
-                        carga = str(int(créditos) * 15)
-                        discipnew.write(f'{código} {nome} {créditos} \t{carga}\n') # ainda pode estar errado, pois a especificação de 3 posições não foi satisfeita
-                        total_discip_novas += 1
-
-                    total_discip_velhas += 1
+                    carga = int(créditos) * 15
+                    discipnew.write(f'{código} {nome} {créditos:2} {str(carga):3}\n')
+                    total_discip_novas += 1
+                total_discip_velhas += 1
     except FileNotFoundError:
         print("Arquivo informado pelo usuário não encontrado. Digite um nome válido.")
+    except PermissionError:
+        print("Sem permissão de criação de arquivo")
     else:
         print(f"Tarefa realizada com sucesso. Número de disciplinas velhas armazenadas: {total_discip_velhas}")
         print(f"Número de disciplinas novas armazenadas: {total_discip_novas}")
