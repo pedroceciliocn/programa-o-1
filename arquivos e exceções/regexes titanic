@@ -1,0 +1,5 @@
+survived = ^\d{3},(\d) fazer esse so pra dar o match
+name = ,([^\d]+),[a-z]
+sex = ,([a-z]+)
+age = [a-z]+,(\d+)
+
