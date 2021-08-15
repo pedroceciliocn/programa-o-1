@@ -12,39 +12,39 @@ Fazer um programa para:
     (negativo ou zero).
 """
 
-fim = False
+# fim = False
 
-while not fim:
-    try:
-        nome_arquivo = input("Digite o nome/caminho do arquivo: ")
-        # profissões = open(nome_arquivo, 'r')
-        # codigos_inexistentes = open('/home/pedro/Documentos/programação_1/arquivos e exceções/codigos.inexistentes.txt', 'w')
+# while not fim:
+#     try:
+#         nome_arquivo = input("Digite o nome/caminho do arquivo: ")
+#         # profissões = open(nome_arquivo, 'r')
+#         # codigos_inexistentes = open('/home/pedro/Documentos/programação_1/arquivos e exceções/codigos.inexistentes.txt', 'w')
 
-        lista = []
+#         lista = []
 
-        numero = int(input("Dê um código de profissão: "))
-        while numero > 0:
-            lista.append(numero)
-            with open("codigos.inexistentes.txt", "w") as inexistentes:
-                with open(nome_arquivo) as profissoes:
-                    for profissao in profissoes:
-                        codigo = profissao[0:3] 
-                        nome = profissao[4:]                     
-                        if int(codigo) in lista:
-                            print(f"O código {codigo} corresponde à profissão de {profissao}")
-                        else:
-                            print("Profissão inexistente")
-                            inexistentes.write(f'{numero}\n')                                                
+#         numero = int(input("Dê um código de profissão: "))
+#         while numero > 0:
+#             lista.append(numero)
+#             with open("codigos.inexistentes.txt", "w") as inexistentes:
+#                 with open(nome_arquivo) as profissoes:
+#                     for profissao in profissoes:
+#                         codigo = profissao[0:3] 
+#                         nome = profissao[4:]                     
+#                         if int(codigo) in lista:
+#                             print(f"O código {codigo} corresponde à profissão de {profissao}")
+#                         else:
+#                             print("Profissão inexistente")
+#                             inexistentes.write(f'{numero}\n')                                                
                     
-            numero = int(input("Dê mais um código de profissão: (0 ou negativo para)"))
+#             numero = int(input("Dê mais um código de profissão: (0 ou negativo para)"))
 
                     
         
-    except FileNotFoundError:
-        print("Arquivo informado pelo usuário não encontrado. Digite um nome válido.")
-    else:
-        print("Programa encerrado.")
-        fim = True  
+#     except FileNotFoundError:
+#         print("Arquivo informado pelo usuário não encontrado. Digite um nome válido.")
+#     else:
+#         print("Programa encerrado.")
+#         fim = True  
 
 
 # if any(element in 'Bird' for element in animals):
