@@ -16,20 +16,32 @@ def fatorial(num):
         f = num * fatorial(num - 1)
     return f
 
-def serie(n, nu = 5, nu_neg = 15, de = 2, pos = True):
+# def serie(n, nu = 5, nu_neg = 15, de = 2, pos = True):
+#     if pos == True:
+#         res = nu / fatorial(de)
+#     else:
+#         res = nu_neg / fatorial(de)
+#     if n > 1:
+#         if pos == True:
+#             # print(f"{nu}/{de}")
+#             return res + serie(n - 1, nu * 6, nu_neg, de + 1, False)
+#         else:
+#             # print(f"{nu_neg}/{de}")
+#             return res + serie(n - 1, nu, nu_neg * 5, de + 1, True)
+#     else:
+#         res = 3
+#     return res
+
+def serie(n, nu = 3, nu_neg = 5, de = 1, pos = True):
     if pos == True:
         res = nu / fatorial(de)
     else:
         res = nu_neg / fatorial(de)
     if n > 1:
         if pos == True:
-            # print(f"{nu}/{de}")
-            return res + serie(n - 1, nu * 6, nu_neg, de + 1, False)
+            return res + serie(n - 1, nu * 5, nu_neg, de + 1, False)
         else:
-            # print(f"{nu_neg}/{de}")
-            return res + serie(n - 1, nu, nu_neg * 5, de + 1, True)
-    else:
-        res = 3
+            return res + serie(n - 1, nu, nu_neg * 6, de + 1, True)
     return res
 
 

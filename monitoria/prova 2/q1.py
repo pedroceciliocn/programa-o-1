@@ -11,35 +11,25 @@ OBS - Você pode (ou não) incluir um programa principal para ler um valor de N 
 função: somente a função será avaliada na correção.
 """
 
-# def MultiplicaDigitos(numero):
-#     multi_resto = 1
-#     while numero > 0:
-#         if len(str(numero)) > 6:
-#             return -2
-#         else:
-#             resto = numero % 10
-#             numero = numero // 10
-#             multi_resto *= resto
-#     while numero < 0:
-#         return -1
-#     return multi_resto
-
-def MultiplicaDigitos(numero):
-    multi_resto = 1
-    while numero > 0:
-        if numero > 999999:
-            return -2
-        else:
-            resto = numero % 10
-            numero = numero // 10
-            multi_resto *= resto
-    while numero < 0:
+def MultiplicaDigitos(Num):
+    if Num < 1:
         return -1
-    return multi_resto
+    elif Num > 999999:
+        return -2
+    else:
+        mult = 1
+        while Num > 0:
+            if Num % 10 != 0:
+                mult = mult * (Num % 10)
+            Num = Num // 10
+    
+    return mult
 
-# DEPOIS FAZER A FUNÇÃO PRINCIPAL COM TRATAMENTO DE EXCEÇÕES
-print(MultiplicaDigitos(25))
-print(MultiplicaDigitos(222))
-print(MultiplicaDigitos(222222))
-print(MultiplicaDigitos(2222222))
-print(MultiplicaDigitos(-2))
+erro = True
+
+while erro:
+    try:
+        Num = int(input("Digite um número: "))
+
+    except ValueError:
+        print("Erro de valor (você digitou algo diferente de um número.")

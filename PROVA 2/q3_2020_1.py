@@ -39,28 +39,66 @@ def MelhoresClientes(nome_empresa, pontuação):
                 Melhores.write(f'{matricula} {pontos}\n')
                 cont += 1
                 soma += float(pontos)
-        print(f"A média de pontuação dos {cont} melhores clientes da empresa '{nome_empresa}' foi de {soma/cont:.2f} pontos")
+        print(f"A média de pontuação dos {cont} melhores clientes (que tem pontuação superior à informada) da empresa '{nome_empresa}' foi de {soma/cont:.2f} pontos")
         
 
 
 # MelhoresClientes('P1SI-p2-2020-1-Q3-Arquivo', 60000)
 # MelhoresClientes('Nobre', 10000)
 
-N = int(input("Dê o numero N de empresas: "))
-while N < 0:
-    N = int(input("Dê o numero N de empresas: "))
 
-fim = False
-while not fim:
-    try:
-        while N > 0:
-            nome_empresa = input('Dê o nome da empresa: ')
-            pontuação = float(input('Dê a pontuação a ser considerada: '))
-            MelhoresClientes(nome_empresa, pontuação)
-            N -= 1
-    except FileNotFoundError:
-        print("Arquivo informado pelo usuário não encontrado. Digite um nome válido.")
-    except PermissionError:
-        print("Sem permissão de criação de arquivo")
-    else:
-        fim = True
+# MARROMENO ERRADO
+# N = int(input("Dê o numero N de empresas: "))
+# while N < 0:
+#     N = int(input("Dê o numero N de empresas: "))
+
+# fim = False
+# while not fim:
+#     try:
+#         while N > 0:
+#             nome_empresa = input('Dê o nome da empresa: ')
+#             pontuação = float(input('Dê a pontuação a ser considerada: '))
+#             while pontuação > 999999 or pontuação < 0:
+#                 pontuação = float(input('Dê a pontuação a ser considerada (com menos de 6 dígitos e positiva): '))
+#             MelhoresClientes(nome_empresa, pontuação)
+#             N -= 1
+#     except FileNotFoundError:
+#         print(f"Arquivo '{nome_empresa}.txt' informado pelo usuário não encontrado. Digite um nome válido.")
+#     except PermissionError:
+#         print("Sem permissão de criação de arquivo")
+#     except ZeroDivisionError:
+#         print(f"Não tem cliente algum com pontuação maior que {pontuação}")
+#     else:
+#         fim = True
+
+
+
+
+# ERRADO
+# N = int(input("Dê o número N de empresas para verificação: "))
+
+# erro = False
+# for i in range(N):
+#     try:
+#         nome_empresa = input('Dê o nome da empresa: ')
+#         pontuação = float(input('Dê a pontuação a ser considerada: '))
+#     except:
+#         erro = True
+#     else:
+#         MelhoresClientes(nome_empresa, pontuação)
+#     while erro:
+#         try:
+#             nome_empresa = input(f"Arquivo '{nome_empresa}.txt' informado pelo usuário não encontrado. Digite um novo nome válido: ")
+#             pontuação = float(input(f'Pontuação "{pontuação}" inválida. Dê uma nova pontuação a ser considerada: '))
+#         except:
+#             erro = True    
+#         else:
+#             MelhoresClientes(nome_empresa, pontuação)
+
+
+
+
+
+
+
+
