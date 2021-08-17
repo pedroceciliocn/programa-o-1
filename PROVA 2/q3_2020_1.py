@@ -116,9 +116,9 @@ while not fim:
             try:
                 MelhoresClientes(nome_empresa, pontuação)
             except FileNotFoundError:
-                print(f"Arquivo '{nome_empresa}.txt' informado não encontrado. Empresa desconsiderada! Digite um nome válido.")         
+                print(f"Arquivo '{nome_empresa}.txt' informado não encontrado. Empresa desconsiderada!")         
             except ZeroDivisionError:
-                print(f"Não tem cliente algum com pontuação maior que {pontuação}")
+                print(f"Não tem cliente algum com pontuação maior que {pontuação}. Pontuação desconsiderada!")
             else:
                 N -= 1
                 fim = True

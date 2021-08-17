@@ -16,3 +16,16 @@ def createMultiplier(number):
 quadruplicate = createMultiplier(4)
 
 print(f"the quadruple of 2 is {quadruplicate(2)}")
+
+
+
+#### SEM USAR LAMBDA
+
+def multiplier(multiple):
+    def calculate(number):
+        return number * multiple
+    return calculate
+
+multiply_by_4 = multiplier(4)
+
+print(multiply_by_4(2))
