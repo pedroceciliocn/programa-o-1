@@ -35,10 +35,10 @@ def MelhoresClientes(nome_empresa, pontuação):
             pontos = clientes[8:15]
             nome = clientes[16:51]
     
-            if float(pontos) > float(pontuação):
+            if int(pontos) > int(pontuação):
                 Melhores.write(f'{matricula} {pontos}\n')
                 cont += 1
-                soma += float(pontos)
+                soma += int(pontos)
         print(f"A média de pontuação dos {cont} melhores clientes (que tem pontuação superior à informada) da empresa '{nome_empresa}' foi de {soma/cont:.2f} pontos")
         
 
@@ -57,9 +57,9 @@ def MelhoresClientes(nome_empresa, pontuação):
 #     try:
 #         while N > 0:
 #             nome_empresa = input('Dê o nome da empresa: ')
-#             pontuação = float(input('Dê a pontuação a ser considerada: '))
+#             pontuação = int(input('Dê a pontuação a ser considerada: '))
 #             while pontuação > 999999 or pontuação < 0:
-#                 pontuação = float(input('Dê a pontuação a ser considerada (com menos de 6 dígitos e positiva): '))
+#                 pontuação = int(input('Dê a pontuação a ser considerada (com menos de 6 dígitos e positiva): '))
 #             MelhoresClientes(nome_empresa, pontuação)
 #             N -= 1
 #     except FileNotFoundError:
@@ -70,6 +70,60 @@ def MelhoresClientes(nome_empresa, pontuação):
 #         print(f"Não tem cliente algum com pontuação maior que {pontuação}")
 #     else:
 #         fim = True
+
+fim = False
+while not fim:
+    try:
+        N = int(input("Dê o numero N de empresas: "))
+        while N < 0:
+            N = int(input("Dê o numero N de empresas: "))
+    except ValueError:
+        print("Digite um número inteiro!")
+    else:
+        fim = True
+
+# fim = False
+# while not fim:
+#     while N > 0:
+#         try:
+#             nome_empresa = input('Dê o nome da empresa: ')
+#             pontuação = int(input('Dê a pontuação a ser considerada: '))
+#             while pontuação > 999999 or pontuação < 0:
+#                 pontuação = int(input('Dê a pontuação a ser considerada (com menos de 6 dígitos e positiva): '))
+#             MelhoresClientes(nome_empresa, pontuação)
+#             N -= 1
+#         except FileNotFoundError:
+#             print(f"Arquivo '{nome_empresa}.txt' informado pelo usuário não encontrado. Digite um nome válido.")
+#         except PermissionError:
+#             print("Sem permissão de criação de arquivo")
+#         except ZeroDivisionError:
+#             print(f"Não tem cliente algum com pontuação maior que {pontuação}")
+#         else:
+#             fim = True
+
+
+fim = False
+while not fim:
+    while N > 0:
+        try:
+            nome_empresa = input('Dê o nome da empresa: ')
+            pontuação = int(input('Dê a pontuação a ser considerada: '))
+            while pontuação > 999999 or pontuação < 0:
+                pontuação = int(input('Dê a pontuação a ser considerada (com menos de 6 dígitos e positiva): '))
+        except ValueError:
+            print("Você deu uma string na pontuação! Dê um número.")
+        else:    
+            try:
+                MelhoresClientes(nome_empresa, pontuação)
+            except FileNotFoundError:
+                print(f"Arquivo '{nome_empresa}.txt' informado não encontrado. Empresa desconsiderada! Digite um nome válido.")         
+            except ZeroDivisionError:
+                print(f"Não tem cliente algum com pontuação maior que {pontuação}")
+            else:
+                N -= 1
+                fim = True
+        
+        
 
 
 
